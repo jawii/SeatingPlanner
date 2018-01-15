@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags always come first -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <!-- Bootstrap CSS -->
+    <script src="https://www.atlasestateagents.co.uk/javascript/tether.min.js"></script><!-- Tether for Bootstrap --> 
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+    
+    <!-- OWN STYLES -->
+    <link rel="stylesheet" href="css/mystyles.css">
+
+  </head>
+  <body>
+    <div class = "text-xs-center" >
+        <h1>Seating Planner</h1>
+    </div>
+    <!-- Empty Space -->
+    <div class = "container m-t-1">
+
+    </div>
+      
+      
+    <div class="row">
+    <div class="col-md-3 settings"> 
+        <h5>Settings</h3>
+        <form id = "settingsForm">
+            <fieldset>
+            <label for="studentsList" class="form-control-label">Students List. Type each student separated by space.</label>
+            <textarea class="form-control" id="studentsList" rows="3"></textarea>
+            </fieldset>
+            
+            <fieldset>
+                <label for="seatingRows">Rows:</label>
+                 <input id="seatingRows" type="number" min="0" max="10" step="1"/>
+              <label for="seatingColumns">Columns:</label>
+                 <input id="seatingColumns" type="number" min="0" max="10" step="1"/>
+              <label for="emptySeats"> Empty spaces </label>
+                 <input id="emptySeats" type="checkbox">
+            </fieldset>
+
+            <fieldset id="dynamicInput">
+                <div class="rules"> </div>
+                <!-- <label> Add rules </label> -->
+                <input class="btn btn-xs btn-default" type="button" value="Add rule" onClick="addRule('dynamicInput');">
+                    
+            </fieldset>
+
+            <fieldset>
+            <button type="submit" class="btn btn-success btn-xs"> Create Order </button>
+            </fieldset>
+            
+        </form>
+    </div>  
+        
+    <div class="col-md-8" id = "orderArea"> 
+        <h5>The Order</h3>
+        <div id="container"></div>
+        <!-- <canvas id="canvas" width="800" height="600"></canvas> -->
+    </div>  
+    </div>
+         
+         
+         
+    <!-- jQuery first, then Bootstrap JS. -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
+    
+    <!-- KONVA -->
+    <script src="https://cdn.rawgit.com/konvajs/konva/1.7.6/konva.min.js"></script>
+    <!-- Seating Plan - JavaScript -->
+    <script src="seating-plan.js"></script>
+
+
+  </body>
+</html>

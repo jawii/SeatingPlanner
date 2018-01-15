@@ -1,0 +1,21 @@
+footer {
+    font-size: 0.75em;
+    text-align: center;
+    padding-top: 50px;
+    clear: both;
+}
+
+.social-link {
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    
+}
+
+.rules {
+	position: inline-block;
+}
+
+/*.settings {
+	margin: 10px;
+}*/
