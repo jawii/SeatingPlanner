@@ -1,5 +1,5 @@
 body{
-    font-family: 'Roboto Mono', monospace;
+    font-family: 'Nunito', sans-serif;
 }
 
 .heading{
@@ -9,6 +9,7 @@ body{
 h5{
     margin: auto;
     text-align: left;
+    padding-bottom: 15px;
 }
 
 .settings {
@@ -26,7 +27,18 @@ h5{
     min-width: 90%;
 }
 
+.setUpArea{
+    border: 1px dashed black;
+    padding-bottom: 20px;
+}
+
+.rules{
+    border: 1px dashed black;
+    padding: 14px;
+}
+
 .rules div{
+    font-size: 14px;
     margin: 10px;
     position: inline-block;
 }
@@ -35,6 +47,20 @@ h5{
     font-size: 14px;
 }
 
+#orderArea{
+    padding-left: 10px;
+}
+
+#addRuleButton{
+    margin-top: 5px;
+    margin-left: 1%;
+    padding: 2px;
+}
+
+#createOrderButton{
+    padding: 15px;
+    margin-left: 35%;
+}
 
 
 /*.settings {

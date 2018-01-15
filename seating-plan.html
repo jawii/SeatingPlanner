@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="css/mystyles.css">
       
     <!-- Google Fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
   </head>
   <body>
@@ -31,40 +31,41 @@
     <div class="col-md-4 settings"> 
         <h5>Set Up</h5>
         <form id = "settingsForm">
-            <fieldset>
-                <label for="orderListName" class="form-control-label">Name of the Class</label>
-                <textarea id="orderListName" class="form-control-label" rows="1"></textarea>
-            </fieldset>
-            
-            <fieldset>
-                <label for="studentsList" class="form-control-label">Student names. Type each name separated by space.</label>
-                <textarea id="studentsList" class="form-control-label" rows="2"></textarea>
-            </fieldset>
-            
-            <fieldset>
-                <label for="seatingRows">Rows</label>
-                <input id="seatingRows" type="number" min="2" max="9" step="1"/>
-                <label for="seatingColumns">Columns</label>
-                <input id="seatingColumns" type="number" min="2" max="10" step="1"/>
-                <label for="emptySeats"> Empty spaces </label>
-                <input id="emptySeats" type="checkbox">
-            </fieldset>
+            <div class="setUpArea">
+                <fieldset>
+                    <label for="orderListName" class="form-control-label">Name of the Class</label>
+                    <textarea id="orderListName" class="form-control-label" placeholder="8A Jakso III"rows="1"></textarea>
+                </fieldset>
+
+                <fieldset>
+                    <label for="studentsList" class="form-control-label">Student names. Separate names with space.</label>
+                    <textarea id="studentsList" placeholder="Jaakko Celena Loren Johanna Silas Shin Woodrow Leonila Kelli Agnus Timothy Adelina Rick Silva Yahaira Merle Delphine Kera Theresa  Shiela Barney" class="form-control-label" rows="2"></textarea>
+                </fieldset>
+
+                <fieldset>
+                    <label for="seatingRows">Rows</label>
+                    <input id="seatingRows" type="number" min="2" max="9" step="1"/>
+                    <label for="seatingColumns">Columns</label>
+                    <input id="seatingColumns" type="number" min="2" max="10" step="1"/>
+                    <label for="emptySeats"> Empty spaces </label>
+                    <input id="emptySeats" type="checkbox">
+                </fieldset>
+            </div>
 
             <fieldset id="dynamicInput">
-                <div class="rules"> </div>
+                <h5> Rules</h5>
+                <div class="rules"> </div>    
                 <!-- <label> Add rules </label> -->
-                <input class="btn btn-xs btn-default" type="button" value="Add rule" onClick="addRule('dynamicInput');">
-                    
+                <input id = "addRuleButton" class="btn btn-xs btn-info" type="button" value="Add rule" onClick="addRule('dynamicInput');">     
             </fieldset>
-
             <fieldset>
-            <button type="submit" class="btn btn-success btn-xs"> Create Order </button>
+            <button id = "createOrderButton" type="submit" class="btn btn-success btn-xs"> Create Order </button>
             </fieldset>
             
         </form>
     </div>  
         
-    <div class="col-md-6" id = "orderArea"> 
+    <div class="col-md-7" id = "orderArea"> 
         <h5>The Order</h5>
         <div id="container"></div>
         <!-- <canvas id="canvas" width="800" height="600"></canvas> -->

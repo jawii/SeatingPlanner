@@ -1,8 +1,9 @@
 
 //set some students temporarily in students textarea
-$("#studentsList").val('Sami Milla Heli Juuso Aleksi Mikko Niilo Elle Joona Aada Anna Silja Aatu Tuukka Kiia-Sofia Juho Viivi Sallamari')
+$("#studentsList").val('Jaakko Celena Loren Johanna Silas Shin Woodrow Leonila Kelli Agnus Timothy Adelina Rick Silva Yahaira Merle Delphine Kera Theresa  Shiela Barney')
 $("#seatingRows").val('4');
 $("#seatingColumns").val('6');
+//$("#orderListName").val('8A seats');
 
 var students = addStudents();
 
@@ -32,7 +33,7 @@ $('#settingsForm').submit(function (e) {
     return false;
 });
 
-const WIDTH = 800;
+const WIDTH = 700;
 const HEIGHT = 500;
 const ITERATEAMOUNT = 50000;
 const RECTANGLECOLOR = '#C4DBF1';
@@ -68,8 +69,6 @@ var orderAreaBorders = new Konva.Rect({
     });
 loadingLayer.add(orderAreaBorders);
 loadingLayer.draw();
-
-
 
 //NOT USED
 function startLoadingAnimation(animLayer){  
@@ -209,6 +208,7 @@ function makeOrder(studentArr, rows, columns){
 
     return orderObj;
 }
+
 function drawOrder(orderObject, rows, columns){
 
     //destroy layers
@@ -216,7 +216,44 @@ function drawOrder(orderObject, rows, columns){
         rectangleLayer.destroy();
     }
     rectangleLayer = new Konva.Layer();
-
+    
+    //ClassName
+    var className = $("#orderListName").val();
+    
+    var classText = new Konva.Text({
+                  x: WIDTH/2 - 40, 
+                  y: 40,
+                  name: "teacherText",
+                  text: className,
+                  fontSize: 50,
+                  fontFamily: 'Calibri',
+                  fill: 'black'
+                });
+    
+    //Teacher Seat
+    var teacherText = new Konva.Text({
+                  x: WIDTH/2 - 40, 
+                  y: HEIGHT - 75,
+                  name: "teacherText",
+                  text: "Teacher",
+                  fontSize: 26,
+                  fontFamily: 'Calibri',
+                  fill: 'black'
+                });
+    var teacherSeat = new Konva.Rect({
+                x: WIDTH/2 - 80,
+                y: HEIGHT - 80,
+                name: "teacherRect",
+                width: 160,
+                height: 40,
+                fill: RECTANGLECOLOR,
+                stroke: 'black',
+                strokeWidth: 1,
+                cornerRadius: 1
+            });
+    rectangleLayer.add(classText);
+    rectangleLayer.add(teacherSeat);
+    rectangleLayer.add(teacherText);
     
     
     //create points
