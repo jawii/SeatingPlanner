@@ -12,11 +12,14 @@
     
     <!-- OWN STYLES -->
     <link rel="stylesheet" href="css/mystyles.css">
+      
+    <!-- Google Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono" rel="stylesheet">
 
   </head>
   <body>
-    <div class = "text-xs-center" >
-        <h1>Seating Planner</h1>
+    <div class = "text-xs-center heading" >
+        <h2>Seating Planner</h2>
     </div>
     <!-- Empty Space -->
     <div class = "container m-t-1">
@@ -25,21 +28,26 @@
       
       
     <div class="row">
-    <div class="col-md-3 settings"> 
-        <h5>Settings</h3>
+    <div class="col-md-4 settings"> 
+        <h5>Set Up</h5>
         <form id = "settingsForm">
             <fieldset>
-            <label for="studentsList" class="form-control-label">Students List. Type each student separated by space.</label>
-            <textarea class="form-control" id="studentsList" rows="3"></textarea>
+                <label for="orderListName" class="form-control-label">Name of the Class</label>
+                <textarea id="orderListName" class="form-control-label" rows="1"></textarea>
             </fieldset>
             
             <fieldset>
-                <label for="seatingRows">Rows:</label>
-                 <input id="seatingRows" type="number" min="0" max="10" step="1"/>
-              <label for="seatingColumns">Columns:</label>
-                 <input id="seatingColumns" type="number" min="0" max="10" step="1"/>
-              <label for="emptySeats"> Empty spaces </label>
-                 <input id="emptySeats" type="checkbox">
+                <label for="studentsList" class="form-control-label">Student names. Type each name separated by space.</label>
+                <textarea id="studentsList" class="form-control-label" rows="2"></textarea>
+            </fieldset>
+            
+            <fieldset>
+                <label for="seatingRows">Rows</label>
+                <input id="seatingRows" type="number" min="2" max="9" step="1"/>
+                <label for="seatingColumns">Columns</label>
+                <input id="seatingColumns" type="number" min="2" max="10" step="1"/>
+                <label for="emptySeats"> Empty spaces </label>
+                <input id="emptySeats" type="checkbox">
             </fieldset>
 
             <fieldset id="dynamicInput">
@@ -56,8 +64,8 @@
         </form>
     </div>  
         
-    <div class="col-md-8" id = "orderArea"> 
-        <h5>The Order</h3>
+    <div class="col-md-6" id = "orderArea"> 
+        <h5>The Order</h5>
         <div id="container"></div>
         <!-- <canvas id="canvas" width="800" height="600"></canvas> -->
     </div>  

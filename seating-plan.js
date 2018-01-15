@@ -10,8 +10,7 @@ var students = addStudents();
 $('#settingsForm').submit(function (e) {
     e.preventDefault();
 
-    rectangleLayer.destroy();
-
+    //LOADING TEXT NOT WORKING
     var loadingText = new Konva.Text({
                   x: 200, 
                   y: 50,
@@ -24,11 +23,9 @@ $('#settingsForm').submit(function (e) {
     stage.add(loadingLayer);
     loadingLayer.add(loadingText);
     loadingLayer.draw();
-    console.log("Loading Layer Drawed");
 
     createBestOrder();
 
-    // console.log("best order created");
     loadingText.setAttr('text', "");
     loadingLayer.draw();
 
@@ -36,7 +33,7 @@ $('#settingsForm').submit(function (e) {
 });
 
 const WIDTH = 800;
-const HEIGHT = 600;
+const HEIGHT = 500;
 const ITERATEAMOUNT = 50000;
 const RECTANGLECOLOR = '#C4DBF1';
 const RECTANGLEDRAGCOLOR = "#515A62"
@@ -55,6 +52,23 @@ var stage = new Konva.Stage({
 });
 var rectangleLayer = new Konva.Layer();
 var loadingLayer = new Konva.Layer();
+
+stage.add(rectangleLayer);
+stage.add(loadingLayer);
+
+//create rectangle to stage
+var orderAreaBorders = new Konva.Rect({
+      x: 0,
+      y: 0,
+      width: WIDTH,
+      height: HEIGHT,
+      //fill: 'green',
+      stroke: 'black',
+      strokeWidth: 2
+    });
+loadingLayer.add(orderAreaBorders);
+loadingLayer.draw();
+
 
 
 //NOT USED
@@ -203,19 +217,22 @@ function drawOrder(orderObject, rows, columns){
     }
     rectangleLayer = new Konva.Layer();
 
+    
+    
     //create points
-    var xWidth = (WIDTH - 150)/columns;
-    var yWidth = Math.min((HEIGHT - 200)/rows, 100);
-    var rectWidth = Math.min(xWidth - 10, 120);
+    var yWidth = Math.min((HEIGHT - 200)/rows, 80);
+    var rectWidth = 500/columns;
+    var xWidth = (WIDTH - columns * rectWidth)/(columns + 1);    
     var rectHeight = Math.min(yWidth - 10, 40);
-    var startX = 150 + rectWidth/2;
-    var startY = 200;
+    var startX = xWidth + rectWidth;
+    var startY = 175;
     var seatGroup = [];
 
     //CREATE ALL SEATS
     for(var j = 0; j < rows ; j ++){
          for(var i = 0; i < columns; i++){
-            var rectX = WIDTH - (startX + i * xWidth);
+            //console.log(i, j);
+            var rectX = WIDTH - (startX + i * (xWidth + rectWidth));
             var rectY = HEIGHT - (startY + j * yWidth);
             // context.strokeRect(rectX, rectY, rectWidth, rectHeight);
             var seat = new Konva.Rect({
@@ -227,7 +244,7 @@ function drawOrder(orderObject, rows, columns){
                 fill: RECTANGLECOLOR,
                 stroke: 'black',
                 strokeWidth: 1,
-                cornerRadius: 3
+                cornerRadius: 1
             });
 
             var studentText = new Konva.Text({

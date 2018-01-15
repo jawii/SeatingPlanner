@@ -1,20 +1,41 @@
-footer {
-    font-size: 0.75em;
-    text-align: center;
-    padding-top: 50px;
-    clear: both;
+body{
+    font-family: 'Roboto Mono', monospace;
 }
 
-.social-link {
-    width: 20px;
-    height: 20px;
-    margin: 0 5px;
-    
+.heading{
+    margin-top: 30px;
 }
 
-.rules {
-	position: inline-block;
+h5{
+    margin: auto;
+    text-align: left;
 }
+
+.settings {
+    margin: auto auto 35px 35px;
+}
+.settings fieldset {
+    margin-bottom: 10px;
+}
+.settings fieldset label {
+    margin-left: 0;
+    padding-left: 0;
+}
+.settings fieldset textarea {
+    margin-left: 5%;
+    min-width: 90%;
+}
+
+.rules div{
+    margin: 10px;
+    position: inline-block;
+}
+.remove{
+    color: red;
+    font-size: 14px;
+}
+
+
 
 /*.settings {
 	margin: 10px;
