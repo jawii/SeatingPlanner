@@ -21,55 +21,54 @@
     <div class = "text-xs-center heading" >
         <h2>Seating Planner</h2>
     </div>
-    <!-- Empty Space -->
-    <div class = "container m-t-1">
-
-    </div>
       
       
-    <div class="row">
-    <div class="col-md-4 settings"> 
-        <h5>Set Up</h5>
-        <form id = "settingsForm">
-            <div class="setUpArea">
+    <div class="container">
+        <div class="col-lg-5 settings"> 
+            <h5>Set Up</h5>
+            <form id = "settingsForm" class="form-control">
+                <div class="setUpArea">
+                    <fieldset>
+                        <label for="orderListName" class="form-control-label">Name of the Class</label>
+                        <textarea id="orderListName" class="form-control-label" placeholder="8A Jakso III"rows="1"></textarea>
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="studentsList" class="form-control-label">Student names. Separate names with space.</label>
+                        <textarea id="studentsList" placeholder="Jaakko Celena Loren Johanna Silas Shin Woodrow Leonila Kelli Agnus Timothy Adelina Rick Silva Yahaira Merle Delphine Kera Theresa  Shiela Barney" class="form-control-label" rows="2"></textarea>
+                    </fieldset>
+
+                    <fieldset>
+                        <label for="seatingRows">Rows</label>
+                        <input id="seatingRows" type="number" min="2" max="9" step="1"/>
+                        <label for="seatingColumns">Columns</label>
+                        <input id="seatingColumns" type="number" min="2" max="10" step="1"/>
+                        <label for="emptySeats"> Empty spaces </label>
+                        <input id="emptySeats" type="checkbox">
+                    </fieldset>
+                </div>
+
+                <fieldset id="dynamicInput">
+                    <h5 id = "rulesH5"> Rules</h5>
+                    <input id = "addRuleButton" class="btn btn-xs btn-info" type="button" value="Add rule" onClick="addRule('dynamicInput');">     
+                    <div class="rules"> </div>    
+                    <!-- <label> Add rules </label> -->
+
+                </fieldset>
                 <fieldset>
-                    <label for="orderListName" class="form-control-label">Name of the Class</label>
-                    <textarea id="orderListName" class="form-control-label" placeholder="8A Jakso III"rows="1"></textarea>
+                <button id = "createOrderButton" type="submit" class="btn btn-success btn-xs"> Create Order </button>
                 </fieldset>
 
-                <fieldset>
-                    <label for="studentsList" class="form-control-label">Student names. Separate names with space.</label>
-                    <textarea id="studentsList" placeholder="Jaakko Celena Loren Johanna Silas Shin Woodrow Leonila Kelli Agnus Timothy Adelina Rick Silva Yahaira Merle Delphine Kera Theresa  Shiela Barney" class="form-control-label" rows="2"></textarea>
-                </fieldset>
-
-                <fieldset>
-                    <label for="seatingRows">Rows</label>
-                    <input id="seatingRows" type="number" min="2" max="9" step="1"/>
-                    <label for="seatingColumns">Columns</label>
-                    <input id="seatingColumns" type="number" min="2" max="10" step="1"/>
-                    <label for="emptySeats"> Empty spaces </label>
-                    <input id="emptySeats" type="checkbox">
-                </fieldset>
-            </div>
-
-            <fieldset id="dynamicInput">
-                <h5> Rules</h5>
-                <div class="rules"> </div>    
-                <!-- <label> Add rules </label> -->
-                <input id = "addRuleButton" class="btn btn-xs btn-info" type="button" value="Add rule" onClick="addRule('dynamicInput');">     
-            </fieldset>
-            <fieldset>
-            <button id = "createOrderButton" type="submit" class="btn btn-success btn-xs"> Create Order </button>
-            </fieldset>
-            
-        </form>
-    </div>  
+            </form>
+        </div>  
         
-    <div class="col-md-7" id = "orderArea"> 
-        <h5>The Order</h5>
-        <div id="container"></div>
-        <!-- <canvas id="canvas" width="800" height="600"></canvas> -->
-    </div>  
+
+        <div class="col-lg-5" id = "orderArea"> 
+            <h5>The Order</h5>
+            <div id="container"></div>
+            <!-- <canvas id="canvas" width="800" height="600"></canvas> -->
+        </div>  
+        
     </div>
          
          

@@ -7,13 +7,13 @@ body{
 }
 
 h5{
-    margin: auto;
+/*    margin: auto;*/
     text-align: left;
-    padding-bottom: 15px;
+/*    padding-bottom: 15px;*/
 }
 
 .settings {
-    margin: auto auto 35px 35px;
+    
 }
 .settings fieldset {
     margin-bottom: 10px;
@@ -28,19 +28,23 @@ h5{
 }
 
 .setUpArea{
-    border: 1px dashed black;
+    /*border: 1px dashed black;
     padding-bottom: 20px;
 }
 
 .rules{
-    border: 1px dashed black;
-    padding: 14px;
+    /*border: 1px dashed black;*/
+    padding: 9px;
 }
 
 .rules div{
     font-size: 14px;
-    margin: 10px;
+    margin: 5px;
     position: inline-block;
+}
+
+.rules div select{
+    width: 30%;
 }
 .remove{
     color: red;
@@ -49,18 +53,30 @@ h5{
 
 #orderArea{
     padding-left: 10px;
+    width: 400px;
 }
 
 #addRuleButton{
-    margin-top: 5px;
+/*    margin-top: 5px;*/
     margin-left: 1%;
-    padding: 2px;
+    padding: 1px;
 }
 
 #createOrderButton{
-    padding: 15px;
+    padding: 5px;
     margin-left: 35%;
 }
+
+#container{
+/*    margin: 10px;*/
+    width: 700px;
+    border: 1px solid #7d7d7d;
+}
+
+#rulesH5{
+    display:inline;
+}
+
 
 
 /*.settings {

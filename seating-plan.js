@@ -58,17 +58,17 @@ stage.add(rectangleLayer);
 stage.add(loadingLayer);
 
 //create rectangle to stage
-var orderAreaBorders = new Konva.Rect({
-      x: 0,
-      y: 0,
-      width: WIDTH,
-      height: HEIGHT,
-      //fill: 'green',
-      stroke: 'black',
-      strokeWidth: 2
-    });
-loadingLayer.add(orderAreaBorders);
-loadingLayer.draw();
+//var orderAreaBorders = new Konva.Rect({
+//      x: 0,
+//      y: 0,
+//      width: WIDTH,
+//      height: HEIGHT,
+//      //fill: 'green',
+//      stroke: 'black',
+//      strokeWidth: 2
+//    });
+//loadingLayer.add(orderAreaBorders);
+//loadingLayer.draw();
 
 //NOT USED
 function startLoadingAnimation(animLayer){  
