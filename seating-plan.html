@@ -19,44 +19,44 @@
   </head>
   <body>
     <div class = "text-xs-center heading" >
-        <h2>Seating Planner</h2>
+        <h2>Luokan istumajärjestyksen suunnitteluohjelma</h2>
     </div>
       
       
     <div class="container">
         <div class="col-lg-5 settings"> 
-            <h5>Set Up</h5>
+            <h5>Säätö</h5>
             <form id = "settingsForm" class="form-control">
                 <div class="setUpArea">
                     <fieldset>
-                        <label for="orderListName" class="form-control-label">Name of the Class</label>
+                        <label for="orderListName" class="form-control-label">Luokan nimi</label>
                         <textarea id="orderListName" class="form-control-label" placeholder="8A Jakso III"rows="1"></textarea>
                     </fieldset>
 
                     <fieldset>
-                        <label for="studentsList" class="form-control-label">Student names. Separate names with space.</label>
-                        <textarea id="studentsList" placeholder="Jaakko Celena Loren Johanna Silas Shin Woodrow Leonila Kelli Agnus Timothy Adelina Rick Silva Yahaira Merle Delphine Kera Theresa  Shiela Barney" class="form-control-label" rows="2"></textarea>
+                        <label for="studentsList" class="form-control-label">Oppilaiden nimet. Erottele nimet välilyönnillä.</label>
+                        <textarea id="studentsList" placeholder="Anne Mika Markku Johanna Helena Henri Sanna Risto Lauri Pertti Eero Jussi Jaakko Katri Kreeta" class="form-control-label" rows="2"></textarea>
                     </fieldset>
 
                     <fieldset>
-                        <label for="seatingRows">Rows</label>
+                        <label for="seatingRows">Rivit</label>
                         <input id="seatingRows" type="number" min="2" max="9" step="1"/>
-                        <label for="seatingColumns">Columns</label>
+                        <label for="seatingColumns">Sarakkeet</label>
                         <input id="seatingColumns" type="number" min="2" max="10" step="1"/>
-                        <label for="emptySeats"> Empty spaces </label>
+                        <label for="emptySeats"> Tyhjät välit </label>
                         <input id="emptySeats" type="checkbox">
                     </fieldset>
                 </div>
 
                 <fieldset id="dynamicInput">
-                    <h5 id = "rulesH5"> Rules</h5>
-                    <input id = "addRuleButton" class="btn btn-xs btn-info" type="button" value="Add rule" onClick="addRule('dynamicInput');">     
+                    <h5 id = "rulesH5"> Istumajärjestyksen säännöt</h5>
+                    <input id = "addRuleButton" class="btn btn-xs btn-info" type="button" value="Lisää sääntö" onClick="addRule('dynamicInput');">     
                     <div class="rules"> </div>    
                     <!-- <label> Add rules </label> -->
 
                 </fieldset>
                 <fieldset>
-                <button id = "createOrderButton" type="submit" class="btn btn-success btn-xs"> Create Order </button>
+                <button id = "createOrderButton" type="submit" class="btn btn-success btn-xs"> Luo istumajärjestys </button>
                 </fieldset>
 
             </form>
@@ -64,9 +64,13 @@
         
 
         <div class="col-lg-5" id = "orderArea"> 
-            <h5>The Order</h5>
-            <div id="container"></div>
+            <div id="order-headings">
+                <h5>Istumajärjestys</h5>
+                <p> Huom. Voit vaihtaa istumapaikkoja hiirellä.</p>
+            </div>
+                <div id="container"></div>
             <!-- <canvas id="canvas" width="800" height="600"></canvas> -->
+            <p id="printButton"> Tulosta</p>
         </div>  
         
     </div>
