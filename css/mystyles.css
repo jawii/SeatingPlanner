@@ -16,7 +16,7 @@ h5{
     
 }
 .settings fieldset {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
 }
 .settings fieldset label {
     margin-left: 0;
@@ -26,20 +26,18 @@ h5{
     margin-left: 5%;
     min-width: 90%;
 }
-
 .setUpArea{
-    /*border: 1px dashed black;
-    padding-bottom: 20px;
+    padding-bottom: 15px;
 }
 
 .rules{
-    /*border: 1px dashed black;*/
-    padding: 9px;
+
+    padding: 10px 5px 0 5px ;
 }
 
 .rules div{
     font-size: 14px;
-    margin: 5px;
+    margin: 15px 5px;
     position: inline-block;
 }
 
@@ -58,13 +56,15 @@ h5{
 
 #addRuleButton{
 /*    margin-top: 5px;*/
+    margin-bottom: 2px;
+    font-size: 14px;
     margin-left: 1%;
-    padding: 1px;
+    padding: 0 10px 0 10px;
 }
 
 #createOrderButton{
-    padding: 5px;
-    margin-left: 35%;
+    padding: 10px;
+    margin-left: 32%;
 }
 
 #container{
@@ -77,14 +77,29 @@ h5{
     display:inline;
 }
 
+#order-headings{
+    width: 700px;
+}
 #order-headings h5{
     display: inline;
 }
 #order-headings p{
+    margin-left: 200px;
     display: inline;
     text-align: right;
 }
+#printButton{
+    margin-left:320px;
+    margin-top: 5px;
+}
 
+.row-column-input{
+    width: 45px;
+}
+
+#color-settings{
+    display:none;
+}
 
 /*.settings {
 	margin: 10px;

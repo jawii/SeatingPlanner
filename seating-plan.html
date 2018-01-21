@@ -24,7 +24,7 @@
       
       
     <div class="container">
-        <div class="col-lg-5 settings"> 
+        <div class="col-lg-6 settings"> 
             <h5>Säätö</h5>
             <form id = "settingsForm" class="form-control">
                 <div class="setUpArea">
@@ -39,18 +39,41 @@
                     </fieldset>
 
                     <fieldset>
-                        <label for="seatingRows">Rivit</label>
-                        <input id="seatingRows" type="number" min="2" max="9" step="1"/>
-                        <label for="seatingColumns">Sarakkeet</label>
-                        <input id="seatingColumns" type="number" min="2" max="10" step="1"/>
+                        <label for="seatingRows">Rivit ...</label>
+                        <input id="seatingRows" type="number" min="2" max="9" step="1" class="row-column-input"/>
+                        <label for="seatingColumns">Sarakkeet &#8286 </label>
+                        <input id="seatingColumns" type="number" min="2" max="10" step="1" class="row-column-input"/>
                         <label for="emptySeats"> Tyhjät välit </label>
                         <input id="emptySeats" type="checkbox">
                     </fieldset>
+                    <a id="more-settings-link" href="#"> Lisää asetuksia + </a>
+                    <div id="color-settings">
+                        
+                        <fieldset>
+                            <label for="background-color">Taustan väri</label>
+                            <input type="color" id="background-color" value="#ffffff">
+                            </br>
+                            <label for="seat-color">Pulpettien värit</label>
+                            <input type="color" id="seat-color" value="#C4DBF1">
+                            </br>
+                            <label for="seat-corner-round">Pulpettien pyöristys</label>
+                            <input type="number" min="0" max="20" step="1" id="seat-corner-round" value="0">
+                            </br>
+                            <label for="seat-free-moving">Pulpettien vapaa siirtely</label>
+                            <input type="checkbox"id="seat-free-moving">
+<!--
+                            <label for="teacher-name">Opettajan nimi</label>
+                            <input type="text" id="teacher-name" value="Teacher">
+                            </br>
+-->
+                        </fieldset>
+                    </div>
+                    
                 </div>
 
                 <fieldset id="dynamicInput">
                     <h5 id = "rulesH5"> Istumajärjestyksen säännöt</h5>
-                    <input id = "addRuleButton" class="btn btn-xs btn-info" type="button" value="Lisää sääntö" onClick="addRule('dynamicInput');">     
+                    <input id = "addRuleButton" class="btn btn-xs btn-info" type="button" value="+" onClick="addRule('dynamicInput');">     
                     <div class="rules"> </div>    
                     <!-- <label> Add rules </label> -->
 
@@ -63,14 +86,14 @@
         </div>  
         
 
-        <div class="col-lg-5" id = "orderArea"> 
+        <div class="col-lg-6" id = "orderArea"> 
             <div id="order-headings">
                 <h5>Istumajärjestys</h5>
-                <p> Huom. Voit vaihtaa istumapaikkoja hiirellä.</p>
+                <p> Huom. Voit vaihtaa istumapaikkoja raahaamalla.</p>
             </div>
-                <div id="container"></div>
+            <div id="container"></div>
             <!-- <canvas id="canvas" width="800" height="600"></canvas> -->
-            <p id="printButton"> Tulosta</p>
+            <button id="printButton" class="btn btn-success btn-xs"> Tulosta</button>
         </div>  
         
     </div>

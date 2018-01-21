@@ -1,6 +1,7 @@
     
     //set some students temporarily in students textarea
-    $("#studentsList").val('Anne Mika Markku Johanna Helena Henri Sanna Risto Lauri Pertti Eero Jussi Jaakko Katri Kreeta')
+    $("#studentsList").val('Anne Mika Markku Johanna Helena Henri Sanna Risto Lauri Pertti Eero Jussi Jaakko Katri Kreeta');
+    $("#orderListName").val('8A Jakso IV');
     $("#seatingRows").val('4');
     $("#seatingColumns").val('6');
     //$("#orderListName").val('8A seats');
@@ -36,8 +37,6 @@
     const WIDTH = 700;
     const HEIGHT = 500;
     const ITERATEAMOUNT = 50000;
-    const RECTANGLECOLOR = '#C4DBF1';
-    const RECTANGLEDRAGCOLOR = "#515A62"
     var CROPSTUDENTNAMES = true;
 
     var POINTS;
@@ -70,7 +69,7 @@
     //loadingLayer.add(orderAreaBorders);
     //loadingLayer.draw();
 
-    //NOT USED
+    //NOT USED 
     function startLoadingAnimation(animLayer){  
         var hexagon = new Konva.RegularPolygon({
             x: stage.getWidth() / 2,
@@ -210,6 +209,11 @@
     }
 
     function drawOrder(orderObject, rows, columns){
+        
+        var RECTANGLECOLOR = $("#seat-color").val();;
+        var RECTANGLEDRAGCOLOR = "#515A62"
+        var BACKGROUNDCOLOR = $("#background-color").val();
+        var SEATCORNERRADIUS = $("#seat-corner-round").val();
 
         //destroy layers
         if(rectangleLayer){
@@ -232,13 +236,26 @@
         classText.setOffset({
           x: classText.getWidth() / 2
         });
+        
+        //borders
+        var borders = new Konva.Rect({
+                    x: 0,
+                    y: 0,
+                    width: stage.getWidth(),
+                    height: stage.getHeight(),
+                    fill: BACKGROUNDCOLOR,
+                    stroke: 'black',
+                    strokeWidth: 2,
+                    cornerRadius: 4
+                });
+        rectangleLayer.add(borders);
 
         //Teacher Seat
         var teacherText = new Konva.Text({
-                      x: WIDTH/2 - 40, 
+                      x: WIDTH/2 - 45, 
                       y: HEIGHT - 75,
                       name: "teacherText",
-                      text: "Teacher",
+                      text: "Opettaja",
                       fontSize: 26,
                       fontFamily: 'Calibri',
                       fill: 'black'
@@ -252,7 +269,7 @@
                     fill: RECTANGLECOLOR,
                     stroke: 'black',
                     strokeWidth: 1,
-                    cornerRadius: 1
+                    cornerRadius: SEATCORNERRADIUS
                 });
         rectangleLayer.add(classText);
         rectangleLayer.add(teacherSeat);
@@ -284,7 +301,7 @@
                     fill: RECTANGLECOLOR,
                     stroke: 'black',
                     strokeWidth: 1,
-                    cornerRadius: 1
+                    cornerRadius: SEATCORNERRADIUS
                 });
 
                 var studentText = new Konva.Text({
@@ -340,6 +357,7 @@
         //DRAG AND DROP LOGIC
         var tempLayer = new Konva.Layer();
         stage.add(tempLayer);
+        tempLayer.moveToTop();
 
         for(var k = 0; k < seatGroup.length ; k ++){
 
@@ -348,8 +366,9 @@
             var startY;
 
             seatGroup[k].on('dragstart', function(e){
-                console.log("Drag Started");
+//                console.log("Drag Started");
                 e.target.moveTo(tempLayer);
+                tempLayer.moveToTop();
                 this.children[0].setFill(RECTANGLEDRAGCOLOR);
                 rectangleLayer.draw();
 
@@ -411,22 +430,25 @@
                 var pos = stage.getPointerPosition();
                 var shape = rectangleLayer.getIntersection(pos);
                 this.children[0].setFill(RECTANGLECOLOR);
-
-                if (shape) {
-                    previousShape.fire('drop', {
-                        type : 'drop',
-                        target : previousShape,
-                        evt : e.evt
-                    }, true);
-                }
-                else{
-                    this.setAbsolutePosition({x: 0, y: 0});
-                    // console.log(this);
-                }
+//                this.children[0].setFill(RECTANGLECOLOR);
+                    if (shape && $('#seat-free-moving').is(":checked")) {
+                        previousShape.fire('drop', {
+                            type : 'drop',
+                            target : previousShape,
+                            evt : e.evt
+                        }, true);
+                    }
+                    else{
+                        this.setAbsolutePosition({x: 0, y: 0});
+                        previousShape.fill(RECTANGLECOLOR)
+                        borders.fill(BACKGROUNDCOLOR);
+                        // console.log(this);
+                    }
                 previousShape = undefined;
                 e.target.moveTo(rectangleLayer);
                 rectangleLayer.draw();
                 tempLayer.draw();
+                tempLayer.moveToBottom();
             });
             seatGroup[k].on("dragenter", function(e){
                 e.target.fill(RECTANGLEDRAGCOLOR);
@@ -443,6 +465,7 @@
                 rectangleLayer.draw();
             });
             seatGroup[k].on("drop", function(e){   
+                
                 // console.log('drop ' + e.target.name());
                 e.target.fill(RECTANGLECOLOR)
                 //get the groups
@@ -461,9 +484,11 @@
 
                 tempLayer.draw();
                 rectangleLayer.draw();
+                tempLayer.moveToBottom();
             });
         }
         stage.add(rectangleLayer);
+        rectangleLayer.moveToTop()
     }
 
     function adjustTextPos(rect, text){
@@ -587,7 +612,7 @@
         });
         rulesAmount ++;
         rulesTotalAmount ++;
-        console.log("Rules:" + (rulesAmount - 1));
+//        console.log("Rules:" + (rulesAmount - 1));
 
         var removeHTML = '<span class="remove"> X </span>'
         $('.rules').children().last().append(removeHTML);
@@ -595,7 +620,7 @@
         $('.rules').children().last().on('click', '.remove', function(){
             $(this).parent().remove();
             rulesAmount --;
-            console.log("Rules:" + (rulesAmount - 1));
+//            console.log("Rules:" + (rulesAmount - 1));
         });
     }
 
@@ -656,27 +681,43 @@
             return 1
         }
     }
-
-/*    //Print the Div
+   //Print the Div
     $('#printButton').on('click', function(){
-		console.log(this);
-        printPartOfPage("container")
+//		console.log(this);
+        printContainerDiv()
 		
-	});*/
+	});
     
-    function printPartOfPage(divId){
-        var content = document.getElementById(divId).innerHTML;
-        console.log(content);
-        var mywindow = window.open('', 'Print', 'height=600,width=800');
+    function printContainerDiv(){
+        
+        $('#orderArea').children().last().prev().children().last().children().last().attr("id","printCanvas");
+        
+        const dataUrl = document.getElementById('printCanvas').toDataURL(); 
 
-        mywindow.document.write('<html><head><title>Print</title>');
-        mywindow.document.write('</head><body >');
-        mywindow.document.write(content);
-        mywindow.document.write('</body></html>');
+        let windowContent = '<!DOCTYPE html>';
+        windowContent += '<html>';
+        windowContent += '<head><title>Istumajärjestyksen tuloste (bittifield.net)</title></head>';
+        windowContent += '<body>';
+        windowContent += '<img src="' + dataUrl + '">';
+        windowContent += '</body>';
+        windowContent += '</html>';
 
-        mywindow.document.close();
-        mywindow.focus()
-        mywindow.print();
-        mywindow.close();
-        return true;
-        }
+        const printWin = window.open('', '', 'width=' + screen.availWidth + ',height=' + screen.availHeight);
+        printWin.document.open();
+        printWin.document.write(windowContent); 
+
+        printWin.document.addEventListener('load', function() {
+            printWin.focus();
+            printWin.print();
+            printWin.document.close();
+            printWin.close();            
+        }, true);
+    }
+
+//hide show more settings
+$('#more-settings-link').on('click', function(event) {
+		event.preventDefault();
+		//slideDown(), slideUp(), slideToggle()
+        //$(this).text("Lisää asetuksia - ");
+		$("#color-settings").slideToggle('fast');
+	});
