@@ -23,8 +23,8 @@
     </div>
       
       
-    <div class="container">
-        <div class="col-lg-6 settings"> 
+    <div id="settings-and-order-div">
+        <div class="settings"> 
             <h5>Säätö</h5>
             <form id = "settingsForm" class="form-control">
                 <div class="setUpArea">
@@ -58,9 +58,11 @@
                             </br>
                             <label for="seat-corner-round">Pulpettien pyöristys</label>
                             <input type="number" min="0" max="20" step="1" id="seat-corner-round" value="0">
+<!--
                             </br>
                             <label for="seat-free-moving">Pulpettien vapaa siirtely</label>
                             <input type="checkbox"id="seat-free-moving">
+-->
 <!--
                             <label for="teacher-name">Opettajan nimi</label>
                             <input type="text" id="teacher-name" value="Teacher">
@@ -85,8 +87,7 @@
             </form>
         </div>  
         
-
-        <div class="col-lg-6" id = "orderArea"> 
+        <divc id = "orderArea"> 
             <div id="order-headings">
                 <h5>Istumajärjestys</h5>
                 <p> Huom. Voit vaihtaa istumapaikkoja raahaamalla.</p>

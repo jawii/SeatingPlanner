@@ -11,10 +11,29 @@ h5{
     text-align: left;
 /*    padding-bottom: 15px;*/
 }
+#settings-and-order-div{
+    width: 1300px;
+/*    margin:auto;*/
+    margin: 0 5px 0 15%;
+    display: flex;
+}
 
 .settings {
-    
+    float: left;
+    width: 360px
 }
+#orderArea{
+    float: right;
+    padding-left: 10px;
+    width: 600px;
+}
+
+#container{
+/*    margin: 10px;*/
+    width: 600px;
+    border: 1px solid #7d7d7d;
+}
+
 .settings fieldset {
     margin-bottom: 15px;
 }
@@ -49,10 +68,6 @@ h5{
     font-size: 14px;
 }
 
-#orderArea{
-    padding-left: 10px;
-    width: 500px;
-}
 
 #addRuleButton{
 /*    margin-top: 5px;*/
@@ -64,15 +79,8 @@ h5{
 
 #createOrderButton{
     padding: 10px;
-    margin-left: 32%;
+    margin-left: 25%;
 }
-
-#container{
-/*    margin: 10px;*/
-    width: 700px;
-    border: 1px solid #7d7d7d;
-}
-
 #rulesH5{
     display:inline;
 }
@@ -84,12 +92,12 @@ h5{
     display: inline;
 }
 #order-headings p{
-    margin-left: 200px;
+    margin-left: 120px;
     display: inline;
     text-align: right;
 }
 #printButton{
-    margin-left:320px;
+    margin-left:250px;
     margin-top: 5px;
 }
 

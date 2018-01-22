@@ -34,7 +34,7 @@
         return false;
     });
 
-    const WIDTH = 700;
+    const WIDTH = 600;
     const HEIGHT = 500;
     const ITERATEAMOUNT = 50000;
     var CROPSTUDENTNAMES = true;
@@ -226,10 +226,10 @@
 
         var classText = new Konva.Text({
                       x: stage.getWidth()/2, 
-                      y: 35,
+                      y: 15,
                       name: "teacherText",
                       text: className,
-                      fontSize: 40,
+                      fontSize: 35,
                       fontFamily: 'Calibri',
                       fill: 'black'
                     });
@@ -431,7 +431,7 @@
                 var shape = rectangleLayer.getIntersection(pos);
                 this.children[0].setFill(RECTANGLECOLOR);
 //                this.children[0].setFill(RECTANGLECOLOR);
-                    if (shape && $('#seat-free-moving').is(":checked")) {
+                    if (shape) {
                         previousShape.fire('drop', {
                             type : 'drop',
                             target : previousShape,
