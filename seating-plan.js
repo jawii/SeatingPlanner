@@ -1,7 +1,7 @@
     
     //set some students temporarily in students textarea
-    $("#studentsList").val('Anne Mika Markku Johanna Helena Henri Sanna Risto Lauri Pertti Eero Jussi Jaakko Katri Kreeta');
-    $("#orderListName").val('8A Jakso IV');
+//    $("#studentsList").val('Anne Mika Markku Johanna Helena Henri Sanna Risto Lauri Pertti Eero Jussi Jaakko Katri Kreeta');
+//    $("#orderListName").val('8A Jakso IV');
     $("#seatingRows").val('4');
     $("#seatingColumns").val('6');
     //$("#orderListName").val('8A seats');
@@ -695,10 +695,11 @@
         const dataUrl = document.getElementById('printCanvas').toDataURL(); 
 
         let windowContent = '<!DOCTYPE html>';
+        windowContent += '<style>#image {display: block; margin-left: auto; margin-right: auto; margin-top: 20%; width: 90%;}</style>';
         windowContent += '<html>';
         windowContent += '<head><title>Istumajärjestyksen tuloste (bittifield.net)</title></head>';
         windowContent += '<body>';
-        windowContent += '<img src="' + dataUrl + '">';
+        windowContent += '<img id="image" src="' + dataUrl + '">';
         windowContent += '</body>';
         windowContent += '</html>';
 
